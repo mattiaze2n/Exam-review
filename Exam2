@@ -1,0 +1,110 @@
+['01', '13', '1999']
+# 0      1      2
+def japanize(date):
+    usdate = date.split('/')
+    month = usdate[0]
+    day = usdate[1]
+    year = usdate[2]
+    japandate = year + '/' + month + '/' + day
+    return japandate
+#print(japanize("04/06/1958"))
+
+tr = ["zero", "one", "two", "three"]
+def evenWord(wordList):
+    evenWords = 0
+    for word in wordList:
+        if len(word) % 2 == 0:
+            evenWords += 1
+        else:
+            pass
+    return evenWords
+#print(evenWord(tr))
+
+
+def sumOfLargest(listOflists):
+    somma = 0
+    for list in listOflists:
+        n = max(list)
+        somma += n
+    return somma 
+#print(sumOfLargest(prova))
+
+
+prova = "did you ever hear the tragedy of darth plagueis the wise"       
+def mostCommonWord(stringa):
+    words = {}
+    parole = stringa.split(" ")
+    for element in parole:
+        if element not in words:
+            words[element] = 1
+        elif element in words:
+            words[element] += 1
+    count = 0
+    mostcommon = ''
+    for t in words:
+        if words[t] > count:
+            count = words[t]
+            mostcommon = t
+        else:
+            pass
+    print(mostcommon,':', count)         
+#mostCommonWord(prova)
+
+
+
+name = 'purchase.txt'
+['Food', '10/14/2022', '5.59\n']
+#  0         1            2
+
+def numofpurchases(filename):   
+    totalamount = 0
+    data = open(filename, 'r')
+    data = data.readlines()
+    for line in data:
+        line = line.split(',')
+        if line[0] == 'Food':
+            pass
+        else:
+            amount = line[2]
+            amount = amount.strip('\n')
+            totalamount += float(amount)
+    return totalamount
+#print(numofpurchases(name))
+
+import random 
+
+def flip():
+    sides = ["H", "T"]
+    return random.choice(sides)
+
+def turn():
+    heads = 0
+    tails = 0
+    for i in range(10):
+        result = flip()
+        if result == "H":
+            heads += 1
+        else:
+            tails += 1
+    if heads == 5:
+        return 1
+    else:
+        return 0
+
+def flipSIM(TRIALS):
+    user = 0
+    ProfessorRosen = 0
+    for i in range(TRIALS):
+        score = turn()
+        if score == 1:
+            user += 1
+        else:
+            ProfessorRosen += 1 
+    winodds = user/TRIALS
+    professorodds = ProfessorRosen/TRIALS
+    print("Wins:", user) 
+    print("Cumulative Probability:", winodds )
+    print('Losses',ProfessorRosen)
+    print("Cumulative Probability:", professorodds)
+flipSIM(100000)
+
